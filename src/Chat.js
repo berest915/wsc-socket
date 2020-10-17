@@ -48,7 +48,6 @@ const Chat = () => {
 
 	const sendMessage = e => {
 		e.preventDefault();
-		console.log('you have typed >> ', input);
 	
 		db.collection('rooms')
 			.doc(roomId)
@@ -69,7 +68,7 @@ const Chat = () => {
 					<div className='chat__headerInfo'>
 						<h3>{roomName}</h3>
 						<p>Last seen{" "}
-						{new Date(messages[messages.length -1]?.timestamp?.toDate()).toUTCString()}
+						{new Date(messages[messages.length -1]?.timestamp?.toDate()).toString()}
 						</p>
 					</div>
 
@@ -93,7 +92,7 @@ const Chat = () => {
 							<span className='chat__name'>{message.name}</span>
 							{message.message}
 							<span className='chat__timestamp'>
-								{new Date(message.timestamp?.toDate()).toUTCString()}
+								{new Date(message.timestamp?.toDate()).toString()}
 							</span>
 						</p>
 					))}
